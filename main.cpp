@@ -50,7 +50,7 @@ string numRight (string number){
         else if(temp>0)
             num+=number[i];
     }
-    if(number[number.length()-1]=='.'|| temp==0)
+    if(number[number.length()-1]=='.'|| temp==0||num=="\0")
         num='0';
     return num;
 }
