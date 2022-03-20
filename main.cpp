@@ -54,6 +54,41 @@ string numRight (string number){
         num='0';
     return num;
 }
+bool compareRight(string num1,string num2){
+    int maxlength=0;
+    string temp;
+    if(num1.length()>num2.length()){
+        for (int i = 0; i < num1.length(); ++i) {
+            if(num2[i]>='\0')
+                temp+='0';
+            else
+            temp+=num2[i];
+        }
+        maxlength=num1.length();
+    }
+    else if(num1.length()<num2.length()){
+        for (int i = 0; i < num2.length(); ++i) {
+            if(num1[i]>='\0')
+                temp+='0';
+            else
+                temp+=num1[i];
+        }
+        maxlength=num2.length();
+    }
+    else
+        maxlength=num1.length();
+
+    for (int i = 0; i < maxlength; ++i) {
+        if(num1[0]>num2[0])
+        {
+            return true;
+        }
+    }
+}
+bool compareLeft(string num1,string num2){
+
+    return true;
+}
 int main()
 {
     cout << "Long number" <<endl;
@@ -64,12 +99,10 @@ int main()
     cin>>num2;
     if(checking(num1)&& checking(num2))
     {
-        if(numLeft(num1)==numLeft(num2)&&(numRight(num1) == numRight(num2)))
-            cout<<"Equal"<<endl;
-        else if(numLeft(num1)<=numLeft(num2)&&(numRight(num1)<numRight(num2)))
+
+        if(compareLeft(numLeft(num1), numLeft(num2)) && compareRight(numRight(num1), numRight(num2)))
             cout<<"Less"<<endl;
-        else if(numLeft(num1)>=numLeft(num2)&&(numRight(num1)>numRight(num2)))
-            cout<<"More"<<endl;
+
     }
     else
         cout<<"Incorrect number!!!!\n";
