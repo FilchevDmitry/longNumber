@@ -79,7 +79,6 @@ bool compareLeft(string num1,string num2){
 }
 int main()
 {
-    cout << "Long number" <<endl;
     cout <<"Input number1 : \n";
     string num1,num2;
     cin>>num1;
