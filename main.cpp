@@ -73,9 +73,23 @@ int compareRight(string num1,string num2){
     }
     return false;
 }
-bool compareLeft(string num1,string num2){
-
-    return true;
+int compareLeft(string num1,string num2){
+    int maxlength=0;
+    char temp='0';
+    int numOne=0;
+    int numTwo=0;
+    for (int i = 0; i < num1.length(); ++i) {
+        numOne = numOne*10 + (num1[i] - '0');
+    }
+    for (int i = 0; i < num2.length(); ++i) {
+        numTwo = numTwo*10 + (num2[i] - '0');
+    }
+    if (numOne>numTwo)
+        return true;
+    else if(numOne<numTwo)
+        return -1;
+    else
+        return false;
 }
 int main()
 {
@@ -87,7 +101,7 @@ int main()
     if(checking(num1)&& checking(num2))
     {
 
-        if(compareLeft(numLeft(num1), numLeft(num2)) && compareRight(numRight(num1), numRight(num2))==-1)
+        if(compareLeft(numLeft(num1), numLeft(num2))==-1 && compareRight(numRight(num1), numRight(num2))==-1)
             cout<<"Less"<<endl;
 
     }
