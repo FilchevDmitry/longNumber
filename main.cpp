@@ -101,7 +101,7 @@ int main()
     if(checking(num1)&& checking(num2))
     {
 
-        if(compareLeft(numLeft(num1), numLeft(num2))==-1 && compareRight(numRight(num1), numRight(num2))==-1)
+        if(compareLeft(numLeft(num1), numLeft(num2))==0 && compareRight(numRight(num1), numRight(num2))==-1)
             cout<<"Less"<<endl;
 
     }
