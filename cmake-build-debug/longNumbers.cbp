@@ -8,7 +8,7 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:\Users\filch\CLionProjects\longNumbers\cmake-build-debug"/>
+				<Option working_dir="C:/Users/User/CLionProjects/longNumber/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/CLionProjects/longNumber/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>

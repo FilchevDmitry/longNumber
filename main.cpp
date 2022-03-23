@@ -34,7 +34,7 @@ string numLeft (string number){
     for (int i = 0; i <number.length() ; ++i) {
         if(number[i]=='.')
             temp++;
-        else if(temp==0)
+        if(temp==0)
             num+=number[i];
     }
     if(number[0]=='.')
@@ -62,6 +62,8 @@ int compareRight(string num1,string num2){
         if(maxlength==num1.length()) {
             if (num1[i] > num2[i])
             return true;
+            if(num1[i] < num2[i])
+                return -1;
         }
         if(maxlength==num2.length()){
             if(i>=num1.length())
@@ -101,8 +103,12 @@ int main()
     if(checking(num1)&& checking(num2))
     {
 
-        if(compareLeft(numLeft(num1), numLeft(num2))==0 && compareRight(numRight(num1), numRight(num2))==-1)
+        if(compareLeft(numLeft(num1), numLeft(num2))==1)
+            cout<<"More"<<endl;
+        if(compareLeft(numLeft(num1), numLeft(num2))==-1 && compareRight(numRight(num1), numRight(num2))==-1)
             cout<<"Less"<<endl;
+        if(compareLeft(numLeft(num1), numLeft(num2))==0 && compareRight(numRight(num1), numRight(num2))==0)
+            cout<<"Equal"<<endl;
 
     }
     else
