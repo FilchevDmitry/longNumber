@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 bool checking (string number)
 {
@@ -81,11 +80,27 @@ int compareLeft(string num1,string num2){
     int maxlength=0;
     int numOne=0;
     int numTwo=0;
-    for (int i = 0; i < num1.length(); ++i) {
-        numOne = numOne*10 + (num1[i] - '0');
+    if(num1[0]!='-') {
+        for (int i = 0; i < num1.length(); ++i) {
+            numOne = numOne * 10 + (num1[i] - '0');
+        }
     }
-    for (int i = 0; i < num2.length(); ++i) {
-        numTwo = numTwo*10 + (num2[i] - '0');
+    else {
+        for (int i = 1; i < num1.length(); ++i) {
+            numOne = numOne * 10 + (num1[i] - '0');
+        }
+        numOne*=-1;
+    }
+    if(num2[0]!='-') {
+        for (int i = 0; i < num2.length(); ++i) {
+            numTwo = numTwo * 10 + (num2[i] - '0');
+        }
+    }
+    else{
+        for (int i = 1; i < num2.length(); ++i) {
+            numTwo = numTwo * 10 + (num2[i] - '0');
+        }
+        numTwo*=-1;
     }
     if (numOne>numTwo)
         return true;
@@ -105,13 +120,12 @@ int main()
     {
         int left=compareLeft(numLeft(num1), numLeft(num2));
         int right=compareRight(numRight(num1), numRight(num2));
-        if(left==1)
+        if(left==1|| left==0 && right==1)
             cout<<"More"<<endl;
-        if(left==-1 && right==-1)
+        if(left==-1 && right==-1 || left==-1&& right==0 || left==-1&& right==1)
             cout<<"Less"<<endl;
         if(left==0 && right==0)
             cout<<"Equal"<<endl;
-
     }
     else
         cout<<"Incorrect number!!!!\n";
