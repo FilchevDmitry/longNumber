@@ -60,10 +60,12 @@ int compareRight(string num1,string num2){
     (num1.length()>=num2.length())? maxlength=num1.length() : maxlength=num2.length();
     for (int i = 0; i < maxlength; ++i) {
         if(maxlength==num1.length()) {
-            if (num1[i] > num2[i])
-            return true;
-            if(num1[i] < num2[i])
-                return -1;
+            if(i<num2.length()) {
+                if (num1[i] > num2[i])
+                    return true;
+                if (num1[i] < num2[i])
+                    return -1;
+            }
         }
         if(maxlength==num2.length()){
             if(i>=num1.length())
@@ -77,7 +79,6 @@ int compareRight(string num1,string num2){
 }
 int compareLeft(string num1,string num2){
     int maxlength=0;
-    char temp='0';
     int numOne=0;
     int numTwo=0;
     for (int i = 0; i < num1.length(); ++i) {
@@ -102,12 +103,13 @@ int main()
     cin>>num2;
     if(checking(num1)&& checking(num2))
     {
-
-        if(compareLeft(numLeft(num1), numLeft(num2))==1)
+        int left=compareLeft(numLeft(num1), numLeft(num2));
+        int right=compareRight(numRight(num1), numRight(num2));
+        if(left==1)
             cout<<"More"<<endl;
-        if(compareLeft(numLeft(num1), numLeft(num2))==-1 && compareRight(numRight(num1), numRight(num2))==-1)
+        if(left==-1 && right==-1)
             cout<<"Less"<<endl;
-        if(compareLeft(numLeft(num1), numLeft(num2))==0 && compareRight(numRight(num1), numRight(num2))==0)
+        if(left==0 && right==0)
             cout<<"Equal"<<endl;
 
     }
