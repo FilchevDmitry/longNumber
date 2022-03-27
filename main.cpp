@@ -70,7 +70,7 @@ int compareRight(string num1,string num2){
             if(i>=num1.length())
                 if( num2[i]>temp )
                     return -1;
-            if (num1[i] > num2[i])
+            else if (num1[i] > num2[i]&& i<num1.length())
                     return true;
         }
     }
