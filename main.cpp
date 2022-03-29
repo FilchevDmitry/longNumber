@@ -66,12 +66,15 @@ int compareRight(string num1,string num2){
                     return -1;
             }
         }
-        if(maxlength==num2.length()){
-            if(i>=num1.length())
-                if( num2[i]>temp )
-                    return -1;
-            else if (num1[i] > num2[i]&& i<num1.length())
+        if (maxlength == num2.length()) {
+            if (i < num1.length()) {
+                if (num1[i] > num2[i])
                     return true;
+            }
+            else if (i >= num1.length()) {
+                if (num2[i] > temp)
+                    return -1;
+            }
         }
     }
     return false;
